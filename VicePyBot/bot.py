@@ -3,7 +3,8 @@ from telebot import types
 import datetime
 
 
-bot = telebot.TeleBot('TOKEN')
+#bot = telebot.TeleBot('TOKEN')
+
 avisos = []
 enquete = []
 
@@ -33,16 +34,15 @@ def remover(message):
     n = message.text.replace('/remover', '')
     try:
         idx = int(n)
+        if idx >= len(avisos) or idx<0:
+            check = False
+        if check:
+            avisos.pop(idx)
+            bot.send_message(message.chat.id, 'Aviso ' + str(idx) + ' removido.')
+        else:
+            bot.send_message(message.chat.id, 'Entrada invalida, tente entrar com o numero do aviso correto')
     except ValueError:
-        check = False
-    if idx >= len(avisos) or idx<0:
-        check = False
-    if check:
-        avisos.pop(idx)
-        bot.send_message(message.chat.id, 'Aviso ' + str(idx) + ' removido.')
-    else:
         bot.send_message(message.chat.id, 'Entrada invalida, tente entrar com o numero do aviso correto')
-
 
 @bot.message_handler(commands=['board'])
 def news_board(message):
