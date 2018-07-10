@@ -3,7 +3,7 @@ from telebot import types
 import datetime
 
 
-bot = telebot.TeleBot('--- TOKEN ---')
+bot = telebot.TeleBot('TOKEN')
 avisos = []
 enquete = []
 
@@ -39,7 +39,7 @@ def remover(message):
         check = False
     if check:
         avisos.pop(idx)
-        bot.send_message(message.chat.id, 'Aviso ' + idx + ' removido.')
+        bot.send_message(message.chat.id, 'Aviso ' + str(idx) + ' removido.')
     else:
         bot.send_message(message.chat.id, 'Entrada invalida, tente entrar com o numero do aviso correto')
 
