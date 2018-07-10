@@ -35,7 +35,7 @@ def remover(message):
         idx = int(n)
     except ValueError:
         check = False
-    if idx <= len(avisos):
+    if idx >= len(avisos) || idx<0:
         check = False
     if check:
         avisos.pop(idx)
