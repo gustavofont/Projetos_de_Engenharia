@@ -2,7 +2,6 @@ import telebot
 from telebot import types
 import datetime
 
-bot = telebot.TeleBot('554810315:AAEXepj9p0ePQZBZj3wLXiqRRxaJFDXAVGw')
 #bot = telebot.Telebot('TOKEN')
 avisos = []
 enquete = []
